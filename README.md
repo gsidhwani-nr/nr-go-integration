@@ -28,21 +28,21 @@ Make sure to set the New Relic License Key as an environment variable before run
    - Service2
      - Service2 provides a list of books in JSON format.
      ```bash
-     go build -o service2 ./Service2
+     go build -o service2 ./service2.go
      ./service2
      ```
 
      - Service1
      - Service1 calls Service2, processes the JSON response to extract book titles using a goroutine, and returns the titles to the client.
      ```bash
-     go build -o service1 ./Service1
+     go build -o service1 ./service1.go
      ./service2
      ```
 
      - ClientApp
      - ClientApp makes multiple calls to Service1 and logs the book titles returned by Service1.
      ```bash
-     go build -o clientapp ./ClientApp
+     go build -o clientapp ./clientApp.go
      ./clientapp
      ```
 ## Summary
@@ -54,4 +54,11 @@ Make sure to set the New Relic License Key as an environment variable before run
 <img width="1680" alt="image" src="https://github.com/gsidhwani-nr/nr-go-integration/assets/113113837/1d72bda8-fe6f-4bce-bf42-54482efdc68c">
 <img width="1680" alt="image" src="https://github.com/gsidhwani-nr/nr-go-integration/assets/113113837/3f31858f-3247-476c-9720-93dc11a55993">
 
+## Troubleshooting 
 
+if you face some project initiliazation error, please re-initilaize the project.
+
+```bash
+go mod init gsidhwani-nr/nr-go-integration 
+go mod tidy
+```
